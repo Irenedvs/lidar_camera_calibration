@@ -4,17 +4,25 @@
   
 
   <!-- ArUco mapping -->
- <!--  <node pkg="aruco_mapping" type="aruco_mapping" name="aruco_mapping" output="screen">
-    <remap from="/image_raw" to="/frontNear/left/image_raw"/>
+  <node pkg="aruco_mapping" type="aruco_mapping" name="aruco_mapping" output="screen">
+    <remap from="/image_raw" to="/usb_cam/image_raw"/>
 
-    <param name="calibration_file" type="string" value="$(find aruco_mapping)/data/zed_left_uurmi.ini" /> 
+    <param name="calibration_file" type="string" value="/home/irene/catkin_ws/src/aruco_mapping/data/camera.ini" /> 
     <param name="num_of_markers" type="int" value="2" />
-    <param name="marker_size" type="double" value="0.205"/>
+    <param name="marker_size" type="double" value="0.1651"/>
     <param name="space_type" type="string" value="plane" />
     <param name="roi_allowed" type="bool" value="false" />
+  </node>
 
-
-  </node>  -->
+  <!--   usb_cam node -->
+  <!--<node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+    <param name="video_device" value="/dev/video1" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="mjpeg" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>    -->
 
 
   <rosparam command="load" file="$(find lidar_camera_calibration)/conf/lidar_camera_calibration.yaml" />
